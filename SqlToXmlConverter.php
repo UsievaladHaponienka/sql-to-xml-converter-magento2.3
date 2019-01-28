@@ -175,28 +175,28 @@ class SqlToXmlConverter
                 $node .= $this->typePrepareHelper->prepareTimestamp($line);
                 break;
             case 'date':
-                $node .= $this->typePrepareHelper->prepareDate();
+                $node .= 'date" ';
                 break;
             case 'datetime':
-                $node .= $this->typePrepareHelper->prepareDatetime();
+                $node .= 'datetime" ';
                 break;
             case 'blob':
-                $node .= $this->typePrepareHelper->prepareBlob();
+                $node .= 'blob" ';
                 break;
             case 'longblob':
-                $node .= $this->typePrepareHelper->prepareLongBlob();
+                $node .= 'longblob" ';
                 break;
             case 'mediumblog':
-                $node .= $this->typePrepareHelper->prepareMediumBlob();
+                $node .= 'mediumblog" ';
                 break;
             case 'text':
-                $node .= $this->typePrepareHelper->prepareText();
+                $node .= 'text" ';
                 break;
             case 'longtext':
-                $node .= $this->typePrepareHelper->prepareLongText();
+                $node .= 'longtext" ';
                 break;
             case 'mediumtext':
-                $node .= $this->typePrepareHelper->prepareMediumText();
+                $node .= 'mediumtext" ';
                 break;
         }
         $node .= $this->getColumnName($line);
@@ -272,7 +272,7 @@ class SqlToXmlConverter
 
 $modeConfig = new ModeConfig();
 $sqlToXmlConverter = new SqlToXmlConverter();
-$mode = $modeConfig->getMode()['mode'];
+$mode = $modeConfig->getMode();
 
 switch ($mode) {
     case $sqlToXmlConverter::SINGLE_TABLE_MODE:

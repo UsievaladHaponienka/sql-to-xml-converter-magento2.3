@@ -4,6 +4,9 @@ include_once ROOT . '/config/dbparams.php';
 
 class Connection
 {
+    /**
+     * @var DbParams
+     */
     private $paramsObject;
 
     public function __construct()
@@ -11,6 +14,9 @@ class Connection
         $this->paramsObject = new DbParams();
     }
 
+    /**
+     * @return PDO $db
+     */
     public function getConnection()
     {
         $params = $this->paramsObject->getDbParams();

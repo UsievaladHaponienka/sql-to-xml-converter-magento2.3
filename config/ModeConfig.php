@@ -7,10 +7,12 @@ class ModeConfig
      */
     const MODE = 'database';
 
+    /**
+     * @return string Mode
+     */
     public function getMode()
     {
-        return [
-            'mode' => self::MODE
-        ];
+        return self::MODE;
+
     }
 }

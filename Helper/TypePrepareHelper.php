@@ -91,44 +91,4 @@ class TypePrepareHelper
         }
         return $timestampStr;
     }
-
-    public function prepareDate()
-    {
-        return 'date" ';
-    }
-
-    public function prepareDatetime()
-    {
-        return 'datetime" ';
-    }
-
-    public function prepareBlob()
-    {
-        return 'blob" ';
-    }
-
-    public function prepareLongBlob()
-    {
-        return 'longblob" ';
-    }
-
-    public function prepareMediumBlob()
-    {
-        return 'mediumblob" ';
-    }
-
-    public function prepareText()
-    {
-        return 'text" ';
-    }
-
-    public function prepareLongText()
-    {
-        return 'longtext" ';
-    }
-
-    public function prepareMediumText()
-    {
-        return 'mediumtext" ';
-    }
 }

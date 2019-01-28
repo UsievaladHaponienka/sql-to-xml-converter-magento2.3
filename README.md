@@ -12,3 +12,4 @@ First you need to set mode. Go to config/ModeConfig.php and set const MODE to 'd
   2.1. Go to config/SingleTableMode.php and set STRING - SQL-query. You can get this query with "SHOW CREATE TABLE `tablename`".
   
 Now you can run file SqlToXmlConverter.php located in root directory.
+Result can be found in XML/text.xml

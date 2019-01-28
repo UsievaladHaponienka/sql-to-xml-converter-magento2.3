@@ -19,6 +19,9 @@ class SingleTableMode
   UNIQUE KEY `email` (`email`,`landing_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2387 DEFAULT CHARSET=utf8 COMMENT=\'C38 Ad Landing Coupon\'';
 
+    /**
+     * @return array with query
+     */
     public function getSingleTableModeConfig()
     {
         return [

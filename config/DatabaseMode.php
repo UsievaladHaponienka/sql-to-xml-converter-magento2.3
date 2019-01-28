@@ -17,6 +17,9 @@ class DatabaseMode
      */
     const TABLE_PREFIX = "c38\_%";
 
+    /**
+     * @return array with database mode config
+     */
     public function getDatabaseModeConfig()
     {
         return [
