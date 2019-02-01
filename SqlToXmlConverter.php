@@ -65,7 +65,7 @@ class SqlToXmlConverter
             $stmt2 = $db->prepare("SHOW CREATE TABLE {$tableName}");
             $stmt2->execute();
             $string = $stmt2->fetchColumn(1);
-            if (!preg_match("~ALGORITHM~", $string)) {
+            if (!preg_match("~ALGORITHM~i", $string)) {
                 $this->runDatabaseMode($string);
             }
         }
@@ -77,17 +77,17 @@ class SqlToXmlConverter
     {
         $lines = explode(PHP_EOL, $string);
         foreach ($lines as $lineNumber => $line) {
-            if (preg_match("~ALGORITHM~", $line)) {
+            if (preg_match("~ALGORITHM~i", $line)) {
                 continue;
             }
             switch (true) {
-                case preg_match("~CREATE TABLE~", $line):
+                case preg_match("~CREATE TABLE~i", $line):
                     $this->convertToTableNode($line);
                     break;
-                case preg_match("~ENGINE~", $line):
+                case preg_match("~ENGINE~i", $line):
                     $this->getTableComment($line);
                     break;
-                case preg_match("~KEY~", $line):
+                case preg_match("~KEY~i", $line):
                     $this->convertToKeyNode($line);
                     break;
                 default:
@@ -109,17 +109,17 @@ class SqlToXmlConverter
 
         $lines = explode(PHP_EOL, $string);
         foreach ($lines as $lineNumber => $line) {
-            if (preg_match("~ALGORITHM~", $line)) {
+            if (preg_match("~ALGORITHM~i", $line)) {
                 continue;
             }
             switch (true) {
-                case preg_match("~CREATE TABLE~", $line):
+                case preg_match("~CREATE TABLE~i", $line):
                     $this->convertToTableNode($line);
                     break;
-                case preg_match("~ENGINE~", $line):
+                case preg_match("~ENGINE~i", $line):
                     $this->getTableComment($line);
                     break;
-                case preg_match("~KEY~", $line):
+                case preg_match("~KEY~i", $line):
                     $this->convertToKeyNode($line);
                     break;
                 default:
@@ -133,7 +133,7 @@ class SqlToXmlConverter
 
     public function convertToTableNode($line)
     {
-        preg_match("~CREATE TABLE `(.+)`~", $line, $match);
+        preg_match("~CREATE TABLE `(.+)`~i", $line, $match);
         $tableName = $match[1];
         $this->tableName = $tableName;
         $this->fullXml->setTableNode('<table name="' . $tableName . '" resource="default" engine="innodb"');
@@ -235,7 +235,7 @@ class SqlToXmlConverter
     {
         $typeArray = $this->typePrepareHelper->getTypesArray();
         foreach ($typeArray as $pattern => $type) {
-            if (preg_match("~$pattern~", $line)) {
+            if (preg_match("~$pattern~i", $line)) {
                 return $type;
             }
         }
@@ -246,7 +246,8 @@ class SqlToXmlConverter
     {
         $keyTypeArray = $this->keyTypePrepareHelper->getKeyTypesArray();
         foreach ($keyTypeArray as $pattern => $keyType) {
-            if (preg_match("~$pattern~", $line)) {
+
+            if (preg_match("~$pattern~i", $line)) {
                 return $keyType;
             }
         }
@@ -255,7 +256,7 @@ class SqlToXmlConverter
 
     public function getColumnName($line)
     {
-        preg_match("~`(.+)`~", $line, $match);
+        preg_match("~`(.+)`~i", $line, $match);
         return 'name="' . $match[1] . '" ';
     }
 

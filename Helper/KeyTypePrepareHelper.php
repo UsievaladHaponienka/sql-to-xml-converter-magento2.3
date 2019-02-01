@@ -17,7 +17,7 @@ class KeyTypePrepareHelper
 
     public function preparePrimaryKey($line)
     {
-        preg_match("~PRIMARY KEY \(`(.+)`\)~", $line, $match);
+        preg_match("~PRIMARY KEY \(`(.+)`\)~i", $line, $match);
         return '<constraint xsi:type="primary" referenceId="PRIMARY"> ' . "\n" .
             '<column name="' . $match[1] . '"/>' . "\n" .
             '</constraint>' . "\n";
@@ -49,7 +49,7 @@ class KeyTypePrepareHelper
 
     public function prepareIndexKey($line)
     {
-        preg_match("~KEY `(.+)` \(`(.+)`~", $line, $match);
+        preg_match("~KEY `(.+)` \(`(.+)`~i", $line, $match);
         return '<index referenceId="' . $match[1] . '">' . "\n" .
             '<column name="' . $match[2] . '"/>' . "\n" .
             '</index>' . "\n";

@@ -32,49 +32,49 @@ class TypePrepareHelper
 
     public function prepareSmallInt($line)
     {
-        preg_match("~smallint\(([0-9]+)\)~", $line, $match);
+        preg_match("~smallint\(([0-9]+)\)~i", $line, $match);
         return 'smallint" padding="' . $match[1] . '" ';
     }
 
     public function prepareBigInt($line)
     {
-        preg_match("~bigint\(([0-9]+)\)~", $line, $match);
+        preg_match("~bigint\(([0-9]+)\)~i", $line, $match);
         return 'bigint" padding="' . $match[1] . '" ';
     }
 
     public function prepareTinyInt($line)
     {
-        preg_match("~tinyint\(([0-9]+)\)~", $line, $match);
+        preg_match("~tinyint\(([0-9]+)\)~i", $line, $match);
         return 'tinyint" padding="' . $match[1] . '" ';
     }
 
     public function prepareInt($line)
     {
-        preg_match("~int\(([0-9]+)\)~", $line, $match);
+        preg_match("~int\(([0-9]+)\)~i", $line, $match);
         return 'int" padding="' . $match[1] . '" ';
     }
 
     public function prepareDecimal($line)
     {
-        preg_match("~decimal\(([0-9]+),([0-9]+)\)~", $line, $match);
+        preg_match("~decimal\(([0-9]+),([0-9]+)\)~i", $line, $match);
         return 'decimal" precision="' . $match[1] . '" scale="' . $match[2] . '" ';
     }
 
     public function prepareFloat($line)
     {
-        preg_match("~float\(([0-9]+),([0-9]+)\)~", $line, $match);
+        preg_match("~float\(([0-9]+),([0-9]+)\)~i", $line, $match);
         return 'float" scale="' . $match[1] . '" precision="' . $match[2] . '" ';
     }
 
     public function prepareDouble($line)
     {
-        preg_match("~double\(([0-9]+),([0-9]+)\)~", $line, $match);
+        preg_match("~double\(([0-9]+),([0-9]+)\)~i", $line, $match);
         return 'double" scale="' . $match[1] . '" precision="' . $match[2] . '" ';
     }
 
     public function prepareVarchar($line)
     {
-        preg_match("~char\(([0-9]+)\)~", $line, $match);
+        preg_match("~char\(([0-9]+)\)~i", $line, $match);
         return 'varchar" length="' . $match[1] . '" ';
     }
 

@@ -9,15 +9,25 @@ class SingleTableMode
     /**
      * const STRING contains SQL query for single table
      */
-    const STRING = 'CREATE TABLE `c38_ad_landing_coupon` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT \'Id\',
-  `email` varchar(128) NOT NULL DEFAULT \'0\' COMMENT \'Customer Email\',
-  `landing_id` int(10) unsigned NOT NULL DEFAULT \'0\' COMMENT \'Ad Landing Id\',
-  `coupon` varchar(64) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`,`landing_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2387 DEFAULT CHARSET=utf8 COMMENT=\'C38 Ad Landing Coupon\'';
+    const STRING = "CREATE TABLE `c38_us_cities` (
+  `city` VARCHAR(255) NULL DEFAULT NULL,
+  `city_ascii` VARCHAR(255) NULL DEFAULT NULL,
+  `state_id` VARCHAR(255) NULL DEFAULT NULL,
+  `state_name` VARCHAR(255) NULL DEFAULT NULL,
+  `county_fips` INT(11) NULL DEFAULT NULL,
+  `county_name` VARCHAR(255) NULL DEFAULT NULL,
+  `lat` VARCHAR(255) NULL DEFAULT NULL,
+  `lng` VARCHAR(255) NULL DEFAULT NULL,
+  `population` VARCHAR(255) NULL DEFAULT NULL,
+  `population_proper` VARCHAR(255) NULL DEFAULT NULL,
+  `density` VARCHAR(255) NULL DEFAULT NULL,
+  `source` VARCHAR(255) NULL DEFAULT NULL,
+  `incorporated` VARCHAR(255) NULL DEFAULT NULL,
+  `timezone` VARCHAR(255) NULL DEFAULT NULL,
+  `zips` VARCHAR(32767) NULL DEFAULT NULL,
+  `id` BIGINT(11) NULL DEFAULT NULL,
+  INDEX `idx_c38_us_cities_city_state` (`city`, `state_name`)
+) COLLATE='latin1_swedish_ci' ENGINE=InnoDB;";
 
     /**
      * @return array with query

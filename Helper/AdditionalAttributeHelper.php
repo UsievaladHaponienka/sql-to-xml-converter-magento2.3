@@ -36,12 +36,12 @@ class AdditionalAttributesHelper
 
     public function isSetDefaultValue($line, $type)
     {
-        if ($type == 'timestamp' AND preg_match("~CURRENT_TIMESTAMP~", $line)) {
+        if ($type == 'timestamp' AND preg_match("~CURRENT_TIMESTAMP~i", $line)) {
             return 'default="CURRENT_TIMESTAMP" ';
         }
 
-        if (!preg_match("~DEFAULT NULL~", $line) AND preg_match("~DEFAULT~", $line)) {
-            preg_match("~DEFAULT '(.*)' ~", $line, $match);
+        if (!preg_match("~DEFAULT NULL~i", $line) AND preg_match("~DEFAULT~i", $line)) {
+            preg_match("~DEFAULT '(.*)' ~i", $line, $match);
 
             $defaultValue = $match[1] ?? null;
             if ($defaultValue !== null) {
@@ -55,8 +55,8 @@ class AdditionalAttributesHelper
 
     public function getComment($line)
     {
-        if (preg_match("~COMMENT~", $line)) {
-            preg_match("~COMMENT '(.+)'~", $line, $match);
+        if (preg_match("~COMMENT~i", $line)) {
+            preg_match("~COMMENT '(.+)'~i", $line, $match);
             return 'comment="' . $match[1] . '" ';
         }
         return '';
