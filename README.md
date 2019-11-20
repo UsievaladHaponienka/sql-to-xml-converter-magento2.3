@@ -1,7 +1,7 @@
 # sql-to-xml-converter
 This tool converts SQL-quieries for table creation to XML according to Declarative Schema in Magento 2.3 (https://devdocs.magento.com/guides/v2.3/extension-dev-guide/declarative-schema/db-schema.html and https://devdocs.magento.com/guides/v2.3/extension-dev-guide/declarative-schema/).
 
-Tool can either convert Single table or convert number of tables in database.
+Tool can either convert single table or convert number of tables in database.
 
 First you need to set mode. Go to config/ModeConfig.php and set const MODE to 'database' or 'table'.
 
@@ -15,4 +15,4 @@ First you need to set mode. Go to config/ModeConfig.php and set const MODE to 'd
 Now you can run file SqlToXmlConverter.php located in root directory.
 Result can be found in XML/text.xml
 
-IMPORTANT. Script IS NOT perfect and you need to check results manualy. The matter of this script is jyust to avoid some routine and save your time.
+IMPORTANT. Script IS NOT perfect and you need to check results manualy. The matter of this script is just to avoid some routine and save your time.
